@@ -39,6 +39,11 @@ object SparkRandomForestClassification {
     }
     val testErr = labelAndPreds.filter(r => r._1 != r._2).count.toDouble / testData.count()
     println("Test Error = " + testErr)
+    import java.io._
+    val writer = new PrintWriter(new File("testresult.txt" ))
+
+    writer.write(testErr+" "+numTrees)
+    writer.close()
 
     //println("Learned classification forest model:\n" + model.toDebugString)
 
