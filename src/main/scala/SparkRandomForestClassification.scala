@@ -23,7 +23,7 @@ object SparkRandomForestClassification {
     // Empty categoricalFeaturesInfo indicates all features are continuous.
     val numClasses = 10
     val categoricalFeaturesInfo = Map[Int, Int]()
-    val numTrees = 1000 // Use more in practice.
+    val numTrees = 100 // Use more in practice.
     val featureSubsetStrategy = "auto" // Let the algorithm choose.
     val impurity = "gini"
     val maxDepth = 20
