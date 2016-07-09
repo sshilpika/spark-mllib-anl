@@ -27,7 +27,7 @@ object SparkRandomForestClassification {
     val featureSubsetStrategy = "auto" // Let the algorithm choose.
     val impurity = "gini"
     val maxDepth = 20
-    val maxBins = 1000
+    val maxBins = 100
 
     val model = RandomForest.trainClassifier(trainingData, numClasses, categoricalFeaturesInfo,
       numTrees, featureSubsetStrategy, impurity, maxDepth, maxBins)
@@ -39,10 +39,11 @@ object SparkRandomForestClassification {
     }
     val testErr = labelAndPreds.filter(r => r._1 != r._2).count.toDouble / testData.count()
     println("Test Error = " + testErr)
-    println("Learned classification forest model:\n" + model.toDebugString)
+
+    //println("Learned classification forest model:\n" + model.toDebugString)
 
     // Save model
-    model.save(sc, "myRandomForestClassificationModel")
+    model.save(sc, "myRandomForestClassificationModel1")
    // val sameModel = RandomForestModel.load(sc, "myRandomForestClassificationModel")
     // $example off$
   }
