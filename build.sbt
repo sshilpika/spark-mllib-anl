@@ -6,7 +6,7 @@ scalaVersion := "2.10.6"
 
 scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked")
 
-mainClass in assembly := Some("SparkRandomForestClassification")
+mainClass in assembly := Some("org.apache.spark.mllib.KmeansTest")
 
 resolvers ++= Seq(
   "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"

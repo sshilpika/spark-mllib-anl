@@ -9,7 +9,7 @@ import org.apache.spark.mllib.util.MLUtils
 // $example off$
 
 object SparkRandomForestClassification {
-  def main(args: Array[String]): Unit = {
+  def main1(args: Array[String]): Unit = {
     val conf = new SparkConf().setAppName("RandomForestClassification")
     val sc = new SparkContext(conf)
     // $example on$
