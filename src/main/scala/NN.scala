@@ -48,7 +48,7 @@ object NN {
 
     val evaluator1 = new MulticlassClassificationEvaluator()
       .setMetricName("recall")
-    println("Precision:" + evaluator1.evaluate(predictionAndLabels))
+    println("Recall:" + evaluator1.evaluate(predictionAndLabels))
   }
 
 }
