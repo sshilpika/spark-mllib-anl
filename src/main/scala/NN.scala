@@ -30,11 +30,11 @@ object NN {
     val test = splits(1)
     // specify layers for the neural network:
     // input layer of size 4 (features), two intermediate of size 5 and 4 and output of size 3 (classes)
-    val layers = Array[Int](3072, 100, 50, 10)
+    val layers = Array[Int](3072, 80, 50, 10)
     // create the trainer and set its parameters
     val trainer = new MultilayerPerceptronClassifier()
       .setLayers(layers)
-      .setBlockSize(250)
+      .setBlockSize(2500)
       .setSeed(1000L)
       .setMaxIter(60000)
     // train the model
