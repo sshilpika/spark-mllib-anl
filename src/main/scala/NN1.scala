@@ -8,7 +8,7 @@ import org.apache.spark.ml.evaluation.MulticlassClassificationEvaluator
   */
 object NN1 {
 
-  def main(args: Array[String]): Unit = {
+  def main1(args: Array[String]): Unit = {
 
 
     val conf = new SparkConf().setAppName("Multilayer-Perceptron-Classifier-EXAMPLE")

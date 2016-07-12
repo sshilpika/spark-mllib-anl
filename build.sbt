@@ -6,7 +6,7 @@ scalaVersion := "2.10.6"
 
 scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked")
 
-mainClass in assembly := Some("org.apache.spark.mllib.NN1")
+mainClass in assembly := Some("org.apache.spark.mllib.NN")
 
 resolvers ++= Seq(
   "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
