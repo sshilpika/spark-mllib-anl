@@ -20,7 +20,7 @@ object NN1 {
     val data = sqlContext.read.format("libsvm")
       .load("sample_multiclass_classification_data.txt")
     // Split the data into train and test
-    val splits = data.randomSplit(Array(0.6, 0.4), seed = 1234L)
+    val splits = data.randomSplit(Array(0.6, 0.4), seed = 1000L)
     val train = splits(0)
     val test = splits(1)
     // specify layers for the neural network:
@@ -31,7 +31,7 @@ object NN1 {
     val trainer = new MultilayerPerceptronClassifier()
       .setLayers(layers)
       .setBlockSize(128)
-      .setSeed(1234L)
+      .setSeed(1000L)
       .setMaxIter(100)
     // train the model
     val model = trainer.fit(train)

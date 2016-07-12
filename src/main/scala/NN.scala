@@ -25,18 +25,18 @@ object NN {
     // Load training data
     val data = MLUtils.loadLibSVMFile(sc, "libsvm_batch2.txt").toDF()
     // Split the data into train and test
-    val splits = data.randomSplit(Array(0.6, 0.4), seed = 1234L)
+    val splits = data.randomSplit(Array(0.6, 0.4), seed = 1000L)
     val train = splits(0)
     val test = splits(1)
     // specify layers for the neural network:
     // input layer of size 4 (features), two intermediate of size 5 and 4 and output of size 3 (classes)
-    val layers = Array[Int](3072, 60, 50, 10)
+    val layers = Array[Int](3072, 100, 50, 10)
     // create the trainer and set its parameters
     val trainer = new MultilayerPerceptronClassifier()
       .setLayers(layers)
       .setBlockSize(250)
-      .setSeed(1234L)
-      .setMaxIter(10000)
+      .setSeed(1000L)
+      .setMaxIter(60000)
     // train the model
     val model = trainer.fit(train)
     // compute precision on the test set
