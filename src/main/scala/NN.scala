@@ -34,14 +34,17 @@ object NN {
     // create the trainer and set its parameters
     val trainer = new MultilayerPerceptronClassifier()
       .setLayers(layers)
-      .setBlockSize(25000)
+      .setBlockSize(250)
       .setSeed(1234L)
-      .setMaxIter(1000)
+      .setMaxIter(10000)
     // train the model
     val model = trainer.fit(train)
     // compute precision on the test set
     val result = model.transform(test)
     val predictionAndLabels = result.select("prediction", "label")
+    val pl = (result.select("prediction"), result.select("label"))
+
+
     val evaluator = new MulticlassClassificationEvaluator()
       .setMetricName("precision")
     println("Precision:" + evaluator.evaluate(predictionAndLabels))
