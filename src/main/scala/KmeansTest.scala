@@ -7,7 +7,7 @@ import org.apache.spark.sql.DataFrame
 
 object KmeansTest {
   // Crates a DataFrame
-  def main(args: Array[String]): Unit = {
+  def main1(args: Array[String]): Unit = {
     val conf = new SparkConf().setAppName("KMEANS-TEST")
     val sc: SparkContext = new SparkContext(conf)
     val sqlContext = new org.apache.spark.sql.SQLContext(sc)
