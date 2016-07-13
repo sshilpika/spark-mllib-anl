@@ -36,7 +36,7 @@ object NN {
       .setLayers(layers)
       .setBlockSize(2500)
       .setSeed(1000L)
-      .setMaxIter(60000)
+      .setMaxIter(600000)
     // train the model
     val model = trainer.fit(train)
     // compute precision on the test set
