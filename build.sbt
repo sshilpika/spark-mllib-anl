@@ -22,7 +22,8 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.6" % Test,
   "com.squants" % "squants_2.10" % "0.6.2",
   "com.databricks" % "spark-csv_2.10" % "1.4.0",
-  "org.apache.spark" % "spark-mllib_2.10" % "1.6.1" % "provided"
+  "org.apache.spark" % "spark-mllib_2.10" % "1.6.1" % "provided",
+  "com.squants" % "squants_2.10" % "0.6.2"
 )
 
 

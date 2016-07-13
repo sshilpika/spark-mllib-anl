@@ -10,12 +10,28 @@ import org.apache.spark.sql.Row
 /**
   * Created by Shilpika on 7/11/16.
   */
+
+case class Config(iter: Option[Int] = Some(60000))
+
 object NN {
+
+
+  def parseCommandLine(args: Array[String]): Option[Config] = {
+    val parser = new scopt.OptionParser[Config]("scopt") {
+      head("LineCount", "1.0")
+      opt[Int]('i', "iter") action { (x, c) =>
+        c.copy(iter = Some(x))
+      } text ("iteration is an Int property")
+      help("help") text ("-i enter max iteration")
+
+    }
+    parser.parse(args, Config())
+  }
 
   def main(args: Array[String]):Unit={
 
-
-
+    val appConfig = parseCommandLine(args).getOrElse(Config())
+    val iterM:Int = appConfig.iter.getOrElse(60000)
 
     val conf = new SparkConf().setAppName("Multilayer-Perceptron-Classifier")
     val sc: SparkContext = new SparkContext(conf)
@@ -36,7 +52,7 @@ object NN {
       .setLayers(layers)
       .setBlockSize(2500)
       .setSeed(1000L)
-      .setMaxIter(600000)
+      .setMaxIter(iterM)
     // train the model
     val model = trainer.fit(train)
     // compute precision on the test set
